@@ -10,7 +10,7 @@ public class WeaponControls : ItemControl
 
     private Rigidbody2D body;
 
-    private Vector3 rotationVector;
+    private float rotationVector;
 
 
 
@@ -22,8 +22,8 @@ public class WeaponControls : ItemControl
 
     public override void ControlPart()
     {
-        rotationVector = Quaternion.Euler(Vector3.forward * Input.GetAxisRaw("Horizontal"));
-        body.transform.Rotate(rotationVector);
+        rotationVector = Input.GetAxisRaw("Horizontal") * rotateSpeed;
+        body.transform.Rotate(0,0,rotationVector);
     }
 
     // Update is called once per frame

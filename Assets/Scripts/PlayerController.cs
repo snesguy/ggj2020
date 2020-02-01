@@ -10,11 +10,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private ItemControl player2Controls;
 
+    [SerializeField]
+    private ItemControl mainWeapon;
+
     public PlayerStates PlayerState = PlayerStates.PLAYER;
 
     public enum PlayerStates
     {
-        PLAYER = 0, CONTROL0 = 1
+        PLAYER = 0, CONTROL0 = 1, MAINWEAPON = 2
     }
 
     // Update is called once per frame
@@ -27,6 +30,9 @@ public class PlayerController : MonoBehaviour
                 break;
             case PlayerStates.CONTROL0:
                 player2Controls.ControlPart();
+                break;
+            case PlayerStates.MAINWEAPON:
+                mainWeapon.ControlPart();
                 break;
         }
     }
