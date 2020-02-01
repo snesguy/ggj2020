@@ -7,6 +7,9 @@ public class playerController : MonoBehaviour
     [SerializeField]
     private ItemControl playerControls;
 
+    [SerializeField]
+    private ItemControl player2Controls;
+
     public PlayerStates PlayerState = PlayerStates.PLAYER;
 
     public enum PlayerStates
@@ -28,6 +31,7 @@ public class playerController : MonoBehaviour
                 playerControls.ControlPart();
                 break;
             case PlayerStates.CONTROL0:
+                player2Controls.ControlPart();
                 break;
         }
     }
