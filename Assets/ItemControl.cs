@@ -1,6 +1,14 @@
-﻿internal interface ItemControl
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
+public abstract class ItemControl : MonoBehaviour
 {
 
-    void controlPart();
+    public virtual void ControlPart()
+    {
+        
+    }
 
 }
