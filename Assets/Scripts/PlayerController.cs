@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     [SerializeField]
     private ItemControl playerControls;
@@ -15,11 +15,6 @@ public class playerController : MonoBehaviour
     public enum PlayerStates
     {
         PLAYER = 0, CONTROL0 = 1
-    }
-
-    void Start()
-    {
-
     }
 
     // Update is called once per frame
