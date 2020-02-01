@@ -29,7 +29,6 @@ public class PlayerControls : ItemControl
         movementVector.x = Input.GetAxisRaw("Horizontal") * acceleration;
         movementVector.x = Mathf.Clamp(movementVector.x, -maxSpeed, maxSpeed);
 
-
         if (Input.GetKeyDown("space") && grounded)
         {
             //AudioManager.instance.PlaySound(SoundName.PlayerJump);
