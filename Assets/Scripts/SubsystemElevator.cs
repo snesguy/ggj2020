@@ -26,23 +26,10 @@ public class SubsystemElevator : MonoBehaviour
         timeTilMove = timeToStopInSeconds;
     }
 
-    // http://gizma.com/easing/#quad1
-    float easeInOutCubic (float t, float b, float c, float d)
-    {
-        t /= d / 2;
-        if (t < 1) return c / 2 * t * t * t + b;
-        t -= 2;
-        return c / 2 * (t * t * t + 2) + b;
-    };
-
     // Update is called once per frame
     void FixedUpdate()
     {
-        // Add tweening to elevator
-        
-        float speedMultiplier = (transform.position.y / (topLocation - bottomLocation));
-        speedMultiplier = easeInOutCubic(speedMultiplier, 0, topLocation, 1);
-        movementSpeed = (distanceToMove / framerate * timeToStopInSeconds)*speedMultiplier;
+        movementSpeed = distanceToMove / framerate * timeToStopInSeconds;
 
         if(waitingToMove)
         {
