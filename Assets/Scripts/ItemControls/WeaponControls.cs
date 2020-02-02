@@ -70,10 +70,10 @@ public class WeaponControls : ItemControl
     {
         GameObject bullet = Instantiate(bulletPrefab, spawnPoint.position, transform.rotation);
         Rigidbody2D bulletBody = bullet.GetComponent<Rigidbody2D>();
-        bulletBody.velocity = transform.up * (baseSpeed + (pressure * steamSpeedMultiplier));
+        bulletBody.velocity =  transform.up * (baseSpeed + (pressure * steamSpeedMultiplier));
 
-        ProjectileScript script = bullet.GetComponent<ProjectileScript>();
-        script.power = baseDamage + (pressure * steamDamageMultiplier);
+        DamageDealer script = bullet.GetComponent<DamageDealer>();
+        script.damage = (int) (baseDamage + (pressure * steamDamageMultiplier));
     }
 
     // Update is called once per frame
