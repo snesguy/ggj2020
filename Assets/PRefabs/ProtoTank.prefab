@@ -180,6 +180,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gearCount: 0
   maxGear: 100
+  bigGun: {fileID: 5169433998793699320}
+  littleGunLeft: {fileID: 1736986352808677842}
+  littleGunRight: {fileID: 8896827437332170622}
 --- !u!1 &4740792363047321618
 GameObject:
   m_ObjectHideFlags: 0
