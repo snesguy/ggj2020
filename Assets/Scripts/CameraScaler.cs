@@ -53,7 +53,7 @@ public class CameraScaler : MonoBehaviour
         }
         else
         {
-            transform.position = new Vector3((xSum / objects.Length), -5.0f, transform.position.z);
+            transform.position = new Vector3((xSum / objects.Length), -6.0f, transform.position.z);
         }
     }
 }
