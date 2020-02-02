@@ -74,8 +74,8 @@ public class WeaponControlsSidearm : ItemControl
         Rigidbody2D bulletBody = bullet.GetComponent<Rigidbody2D>();
         bulletBody.velocity = (-leftCannon * transform.right) * (baseSpeed + (pressure * steamSpeedMultiplier));
 
-        ProjectileScript script = bullet.GetComponent<ProjectileScript>();
-        script.power = baseDamage + (pressure * steamDamageMultiplier);
+        DamageDealer script = bullet.GetComponent<DamageDealer>();
+        script.damage = (int) (baseDamage + (pressure * steamDamageMultiplier));
     }
 
     // Update is called once per frame

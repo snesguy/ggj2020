@@ -5,7 +5,7 @@ using UnityEngine;
 public class BoilerRoom : RoomController
 {
 
-    public int totalUranus = 0;
+    public float totalUranus = 0f;
     public float pressurePerUranus = 20.0f;
 
 
@@ -18,9 +18,23 @@ public class BoilerRoom : RoomController
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            addUranium(10f);
+        }
     }
 
-    public void addUranium(int amount)
+    public override bool addPressure(float amt)
+    {
+        pressure += amt;
+        if(pressure > maxPressure)
+        {
+            pressure = maxPressure;
+        }
+        return true;
+    }
+
+    public void addUranium(float amount)
     {
         addPressure(pressurePerUranus * amount);
         totalUranus += amount;

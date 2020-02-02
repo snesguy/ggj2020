@@ -41,7 +41,7 @@ public class Square : MonoBehaviour
     public void TakeDamage(int dmg)
     {
         health.current -= dmg;
-        if(health.current == 0)
+        if(health.current < 0)
         {
             Destroy(gameObject);
         }
