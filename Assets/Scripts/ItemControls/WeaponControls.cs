@@ -66,6 +66,20 @@ public class WeaponControls : ItemControl
         //Debug.Log(transform.eulerAngles.z);
     }
 
+
+    public void ControlPart2(float direction)
+    {
+        rotationVector = direction * -rotateSpeed;
+        transform.Rotate(0, 0, rotationVector);
+
+        if (transform.eulerAngles.z < 270 && transform.eulerAngles.z > 240)
+            transform.eulerAngles = new Vector3(transform.rotation.x, transform.rotation.y, 270);
+        else if (transform.eulerAngles.z > 90 && transform.eulerAngles.z < 120)
+            transform.eulerAngles = new Vector3(transform.rotation.x, transform.rotation.y, 90);
+
+        //Debug.Log(transform.eulerAngles.z);
+    }
+
     public void Fire(float pressure)
     {
         GameObject bullet = Instantiate(bulletPrefab, spawnPoint.position, transform.rotation);

@@ -6,6 +6,10 @@ public class TankInventory : MonoBehaviour
 {
     public int gearCount;
     public int maxGear;
+    public WeaponControls bigGun;
+    public WeaponControlsSidearm littleGunLeft;
+    public WeaponControlsSidearm littleGunRight;
+
     // Start is called before the first frame update
     void Start()
     {

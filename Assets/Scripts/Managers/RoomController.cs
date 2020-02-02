@@ -39,14 +39,7 @@ public class RoomController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.H))
-        {
-            addPressure(.1f);
-            foreach (GameObject emitter in emitters)
-            {
-                emitter.GetComponent<SteamEmitterScript>().setEmissions(1000f);
-            }
-        }
+
     }
 
     void FixedUpdate()
@@ -54,12 +47,13 @@ public class RoomController : MonoBehaviour
 
         if(hp.current < (hp.max * pressureLeakThreshold))
         {
-            foreach (GameObject emitter in emitters)
-            {
-                emitter.GetComponent<SteamEmitterScript>().setEmissions(1000f);
-            }
             reducePressure(pressureLeakRate);
         }
+        foreach (GameObject emitter in emitters)
+            {
+                emitter.GetComponent<SteamEmitterScript>().setEmissions(1f-((float)hp.current/hp.max) * 500f);
+            }
+
     }
 
     public bool usePressure()

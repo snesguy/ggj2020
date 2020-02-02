@@ -50,19 +50,20 @@ public class PlayerControls : ItemControl
     void Start () {
         body = gameObject.GetComponent<Rigidbody2D> ();
         playerCount = GameObject.Find ("PlayerCount");
-        parentObject = GameObject.Find ("Subsystem_Prefab");
         playerInput = gameObject.GetComponent<PlayerInput> ();
 
         playerNumber = playerCount.GetComponent<playerCount> ().getCount ();
         playerCount.GetComponent<playerCount> ().incrementCount ();
 
         if (playerNumber % 2 == 0) {
-            transform.position = new Vector3 (-9, -4, 0);
+            parentObject = GameObject.Find ("Subsystem_Prefab_Left");
+            transform.position = new Vector3 (-6.844599f, 95.89f, 0);
             transform.parent = parentObject.transform;
             teamTank = GameObject.Find ("ProtoTank");
             playerTeam = 0;
         } else {
-            transform.position = new Vector3 (5, -4, 0);
+            parentObject = GameObject.Find ("Subsystem_Prefab_Right");
+            transform.position = new Vector3 (-6.844599f, -95.89f, 0);
             teamTank = GameObject.Find("ProtoTank2");
             playerTeam = 1;
         }
