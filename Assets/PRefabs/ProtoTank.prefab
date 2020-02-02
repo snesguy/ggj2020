@@ -182,8 +182,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f253f77f265c1a14e805c86b8ad05fa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gearCount: 0
-  maxGear: 100
 --- !u!1 &4740792363047321618
 GameObject:
   m_ObjectHideFlags: 0
