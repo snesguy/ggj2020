@@ -142,6 +142,12 @@ public class PlayerControls : ItemControl
         playerInput.SwitchCurrentActionMap ("PlayerControl");
     }
 
+    void OnCollisionEnter2D (Collision2D col) {
+        if (col.gameObject.name == "PlayerTest(Clone)") {
+            Physics2D.IgnoreCollision(col.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        }
+    }
+
     public int getGear()
     {
         return gear;
