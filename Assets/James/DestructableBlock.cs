@@ -8,7 +8,7 @@ public class DestructableBlock : MonoBehaviour
     Collider2D m_Collider;
     Vector3 m_Center;
     Vector3 m_Size, m_Min, m_Max;
-    public float spacing = .15f;
+    float spacing = 0;
     public GameObject square;
 
     void Start()
@@ -25,6 +25,9 @@ public class DestructableBlock : MonoBehaviour
         //Output this data into the console
         OutputData();
 
+        DestroyAllSquares();
+        spacing = square.transform.localScale.x;
+        Debug.Log("Square spacing: " + spacing);
         CreateGrid(m_Min.x, m_Max.x, m_Min.y, m_Max.y);
     }
 
@@ -37,18 +40,17 @@ public class DestructableBlock : MonoBehaviour
         Debug.Log("Collider bound Maximum : " + m_Max);
     }
 
-    void DestroyChildren(Transform root)
+    void DestroyAllSquares()
     {
-        int childCount = root.childCount;
-        for (int i = 0; i < childCount; i++)
+        GameObject[] squares = GameObject.FindGameObjectsWithTag("Square");
+        for (int i = 0; i < squares.Length; i++)
         {
-            GameObject.DestroyImmediate(root.GetChild(0).gameObject);
+            GameObject.DestroyImmediate(squares[i]);
         }
     }
 
     void CreateGrid(float minX, float maxX, float minY, float maxY)
     {
-        DestroyChildren(this.transform);
         Vector3 location = new Vector3(0, 0, 0);
         for (location.y = minY; location.y < maxY; location.y += spacing)
         {
