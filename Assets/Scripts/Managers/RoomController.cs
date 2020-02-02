@@ -51,7 +51,7 @@ public class RoomController : MonoBehaviour
         }
         foreach (GameObject emitter in emitters)
             {
-                emitter.GetComponent<SteamEmitterScript>().setEmissions(1-(hp.current/hp.max) * 100);
+                emitter.GetComponent<SteamEmitterScript>().setEmissions(1f-((float)hp.current/hp.max) * 500f);
             }
 
     }
