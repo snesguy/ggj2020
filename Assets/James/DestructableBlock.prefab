@@ -49,7 +49,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ce84ad17cca0c4285f085ca7f2fc34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spacing: 1
   square: {fileID: 9018378131577135537, guid: 475bbb144ec569149b4f8b341f7014f8, type: 3}
 --- !u!61 &2246955610404637996
 BoxCollider2D:

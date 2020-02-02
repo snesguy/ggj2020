@@ -18,6 +18,8 @@ TagManager:
   - Subsystem_Walls
   - Tank1
   - Tank2
+  - Tank
+  - Square
   - 
   - 
   - 
