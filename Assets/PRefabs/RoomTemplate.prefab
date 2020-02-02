@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea2c863fe9f3421469e0f351aba6aaa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  emitters: []
   boilerRoom: {fileID: 0}
   maxHealth: 100
   maxPressure: 100
