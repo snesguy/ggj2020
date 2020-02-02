@@ -24,7 +24,14 @@ public class RoomController : MonoBehaviour
     private void Start()
     {
         scaler = gameObject.transform.localScale;
-        gameObject.transform.localScale.Set(scaler.x, pressure / maxPressure, scaler.z);
+        UpdateSteamGaugeVisual();
+    }
+
+    void UpdateSteamGaugeVisual()
+    {
+        Vector3 newLocalScale = gameObject.transform.localScale;
+        newLocalScale.Set(scaler.x, pressure / maxPressure, scaler.z);
+        gameObject.transform.localScale = newLocalScale;
     }
 
     private void Update()
@@ -56,7 +63,7 @@ public class RoomController : MonoBehaviour
         {
             pressure = 0;
         }
-        gameObject.transform.localScale.Set(scaler.x, pressure / maxPressure, scaler.z);
+        UpdateSteamGaugeVisual();
         return true;
     }
 
@@ -66,7 +73,7 @@ public class RoomController : MonoBehaviour
         {
             boilerRoom.reducePressure(amt);
             pressure += amt;
-            gameObject.transform.localScale.Set(scaler.x, pressure / maxPressure, scaler.z);
+            UpdateSteamGaugeVisual();
             return true;
         }
         else
