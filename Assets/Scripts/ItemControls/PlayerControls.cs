@@ -16,9 +16,8 @@ public class PlayerControls : ItemControl
 
     private Vector2 movementVector = new Vector2(0, 0);
     private Rigidbody2D body;
-    private bool jumped;
-    private bool grounded = false;
-    private bool settle = false;
+    private bool onControls = false;
+    private PlayerController.PlayerStates itemState;
 
     Vector2 inputMovement;
     float moveSpeed = 10f;

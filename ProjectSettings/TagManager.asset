@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Square
   - Subsystem_Wall
+  - Button
   layers:
   - Default
   - TransparentFX
@@ -16,6 +17,8 @@ TagManager:
   - 
   - 
   - Subsystem_Walls
+  - Tank1
+  - Tank2
   - Tank
   - Square
   - 

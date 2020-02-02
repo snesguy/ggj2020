@@ -5,9 +5,9 @@ using UnityEngine;
 public class BoilerRoom : RoomController
 {
 
-    private float uranium;
+    public int totalUranus = 0;
+    public float pressurePerUranus = 20.0f;
 
-    private float maxUranium;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,27 @@ public class BoilerRoom : RoomController
     // Update is called once per frame
     void Update()
     {
-        
+        if(uranium > 0)
+        {
+            uranium -= uranusDepletionPerSecond * Time.deltaTime;
+            addPressure(gasGenerationPerSecond * Time.deltaTime);
+        }
+        else if(uranium < 0)
+        {
+            uranium = 0;
+        }
+    }
+
+    public void addUranium(int amount)
+    {
+        addPressure(pressurePerUranus * amount);
+        totalUranus += amount;
+    }
+
+    public void addUranium()
+    {
+        addPressure(pressurePerUranus);
+        totalUranus++;
     }
 
 }
