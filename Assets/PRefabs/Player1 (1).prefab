@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -8376848552697668756}
   m_Layer: 0
   m_Name: Player1 (1)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,6 +101,9 @@ MonoBehaviour:
   acceleration: 1
   maxSpeed: 5
   frictionConstant: 0.2
+  moveSpeed: 10
+  playerNumber: 0
+  playerTeam: 0
 --- !u!50 &7257109908124446562
 Rigidbody2D:
   serializedVersion: 4

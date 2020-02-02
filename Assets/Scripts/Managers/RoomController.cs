@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class RoomController : MonoBehaviour
 {
+
+    public GameObject[] emitters;
     
     public BoilerRoom boilerRoom;
 
     Vector3 scaler;
 
-    public float maxHealth = 100f;
-
-    private float health = 100f;
+    private Health hp;
 
     protected float pressure = 0f;
 
@@ -23,23 +23,41 @@ public class RoomController : MonoBehaviour
 
     private void Start()
     {
+
+        hp = gameObject.GetComponent<Health>();
+
         scaler = gameObject.transform.localScale;
-        gameObject.transform.localScale.Set(scaler.x, pressure / maxPressure, scaler.z);
+        UpdateSteamGaugeVisual();
+    }
+
+    void UpdateSteamGaugeVisual()
+    {
+        Vector3 newLocalScale = gameObject.transform.localScale;
+        newLocalScale.Set(scaler.x, pressure / maxPressure, scaler.z);
+        gameObject.transform.localScale = newLocalScale;
     }
 
     private void Update()
     {
         if (Input.GetKey(KeyCode.H))
         {
-            addPressure(10f);
+            addPressure(.1f);
+            foreach (GameObject emitter in emitters)
+            {
+                emitter.GetComponent<SteamEmitterScript>().setEmissions(1000f);
+            }
         }
     }
 
     void FixedUpdate()
     {
 
-        if(health < (maxHealth * pressureLeakThreshold))
+        if(hp.current < (hp.max * pressureLeakThreshold))
         {
+            foreach (GameObject emitter in emitters)
+            {
+                emitter.GetComponent<SteamEmitterScript>().setEmissions(1000f);
+            }
             reducePressure(pressureLeakRate);
         }
     }
@@ -56,7 +74,7 @@ public class RoomController : MonoBehaviour
         {
             pressure = 0;
         }
-        gameObject.transform.localScale.Set(scaler.x, pressure / maxPressure, scaler.z);
+        UpdateSteamGaugeVisual();
         return true;
     }
 
@@ -66,7 +84,11 @@ public class RoomController : MonoBehaviour
         {
             boilerRoom.reducePressure(amt);
             pressure += amt;
-            gameObject.transform.localScale.Set(scaler.x, pressure / maxPressure, scaler.z);
+            if (pressure > maxPressure)
+            {
+                pressure = maxPressure;
+            }
+            UpdateSteamGaugeVisual();
             return true;
         }
         else
@@ -75,21 +97,21 @@ public class RoomController : MonoBehaviour
         }
     }
 
-    public void repair(float amt)
+    public void repair(int amt)
     {
-        health += amt;
-        if(health >= maxHealth)
+        hp.current += amt;
+        if(hp.current >= hp.max)
         {
-            health = maxHealth;
+            hp.current = hp.max;
         }
     }
 
-    public void damage(float amt)
+    public void damage(int amt)
     {
-        health -= amt;
-        if(health <= 0)
+        hp.current -= amt;
+        if(hp.current <= 0)
         {
-            health = 0;
+            hp.current = 0;
         }
     }
 }
