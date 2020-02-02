@@ -20,27 +20,43 @@ public class PlayerControls : ItemControl
     private PlayerController.PlayerStates itemState;
 
     private GameObject playerCount;
+    private GameObject parentObject;
+
+    GameObject teamTank;
+    Vector2 objectMovement;
 
     Vector2 inputMovement;
     public float moveSpeed = 10f;
     public int playerNumber;
+    public int playerTeam;
+
+    PlayerInput playerInput;
+
+    bool tankMovementControl = false;
 
     void Start () {
         body = gameObject.GetComponent<Rigidbody2D> ();
         playerCount = GameObject.Find ("PlayerCount");
+        parentObject = GameObject.Find ("Subsystem_Prefab");
+        playerInput = gameObject.GetComponent<PlayerInput> ();
 
         playerNumber = playerCount.GetComponent<playerCount> ().getCount ();
         playerCount.GetComponent<playerCount> ().incrementCount ();
 
         if (playerNumber % 2 == 0) {
-            transform.position = new Vector3 (-5, -4, 0);
+            transform.position = new Vector3 (-9, -4, 0);
+            transform.parent = parentObject.transform;
+            teamTank = GameObject.Find ("ProtoTank");
+            playerTeam = 0;
         } else {
             transform.position = new Vector3 (5, -4, 0);
+            playerTeam = 1;
         }
     }
 
     void Update () {
         Move ();
+        MoveControlledObject ();
     }
 
     private void Move () {
@@ -48,8 +64,16 @@ public class PlayerControls : ItemControl
         transform.Translate (movement);
     }
 
+    private void MoveControlledObject () {
+        if (tankMovementControl) {
+            Vector3 movement = new Vector3 (objectMovement.x, 0, 0) * moveSpeed * Time.deltaTime;
+
+            teamTank.transform.Translate (movement);
+        }
+    }
+
     private void OnMove (InputValue value) {
-        inputMovement = value.Get<Vector2>();
+        inputMovement = value.Get<Vector2> ();
     }
 
     private void OnMoveLeft () {
@@ -66,6 +90,32 @@ public class PlayerControls : ItemControl
 
     private void OnStopMoveRight () {
         inputMovement = new Vector2 (0, 0);
+    }
+
+    private void OnUseControl () {
+        if (tankMovementControl) {
+            playerInput.SwitchCurrentActionMap ("TankMovementControl");
+        }
+    }
+
+    private void OnMovement (InputValue value) {
+        objectMovement = value.Get<Vector2> ();
+    }
+
+    private void OnGetOut () {
+        playerInput.SwitchCurrentActionMap ("PlayerControl");
+    }
+
+    void OnTriggerEnter2D (Collider2D col) {
+        if (col.gameObject.name == "Button_RM") {
+            tankMovementControl = true;
+        }
+    }
+
+    void OnTriggerExit2D (Collider2D col) {
+        if (col.gameObject.name == "Button_RM") {
+            tankMovementControl = false;
+        }
     }
 
     // public override void ControlPart()

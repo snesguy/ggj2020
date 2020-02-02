@@ -2,25 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoomController
+public class RoomController : MonoBehaviour
 {
     
     public BoilerRoom boilerRoom;
 
-    public float maxHealth;
+    Vector3 scaler;
 
-    private float health;
+    public float maxHealth = 100f;
 
-    private float pressure;
+    private float health = 100f;
 
-    private float maxPressure;
+    protected float pressure = 0f;
+
+    public float maxPressure = 100f;
 
     public float pressureLeakRate = 0.1f;
 
     public float pressureLeakThreshold = .75f;
 
+    private void Start()
+    {
+        scaler = gameObject.transform.localScale;
+        gameObject.transform.localScale.Set(scaler.x, pressure / maxPressure, scaler.z);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.H))
+        {
+            addPressure(10f);
+        }
+    }
+
     void FixedUpdate()
     {
+
         if(health < (maxHealth * pressureLeakThreshold))
         {
             reducePressure(pressureLeakRate);
@@ -39,15 +56,17 @@ public class RoomController
         {
             pressure = 0;
         }
+        gameObject.transform.localScale.Set(scaler.x, pressure / maxPressure, scaler.z);
         return true;
     }
 
-    public bool addPressure(float amt)
+    public virtual bool addPressure(float amt)
     {
-        if (amt >= boilerRoom.pressure)
+        if (amt <= boilerRoom.pressure)
         {
             boilerRoom.reducePressure(amt);
             pressure += amt;
+            gameObject.transform.localScale.Set(scaler.x, pressure / maxPressure, scaler.z);
             return true;
         }
         else
