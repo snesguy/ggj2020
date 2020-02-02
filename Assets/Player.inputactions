@@ -30,7 +30,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "UseController",
+                    "name": "UseControl",
                     "type": "Button",
                     "id": "0182db92-6f37-4cd8-be8e-71d99e42fb0a",
                     "expectedControlType": "",
@@ -127,7 +127,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "UseController",
+                    "action": "UseControl",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
