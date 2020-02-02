@@ -8,6 +8,12 @@ public class WeaponControls : ItemControl
     [SerializeField]
     private float rotateSpeed;
 
+    [SerializeField]
+    private float maxAngle;
+
+    [SerializeField]
+    private float minAngle;
+
     private Rigidbody2D body;
 
     private float rotationVector;
@@ -24,6 +30,7 @@ public class WeaponControls : ItemControl
     {
         rotationVector = Input.GetAxisRaw("Horizontal") * rotateSpeed;
         body.transform.Rotate(0,0,rotationVector);
+
     }
 
     // Update is called once per frame
