@@ -19,19 +19,19 @@ public class Square : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Bullet bullet;
-        if(null != (bullet = collision.gameObject.GetComponent<Bullet>()))
+        DamageDealer damageDealer;
+        if(null != (damageDealer = collision.gameObject.GetComponent<DamageDealer>()))
         {
-            TakeDamage(bullet.damage);
+            TakeDamage(damageDealer.damage);
         }
     }
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        Bullet bullet;
-        if (null != (bullet = collider.gameObject.GetComponent<Bullet>()))
+        DamageDealer damageDealer;
+        if (null != (damageDealer = collider.gameObject.GetComponent<DamageDealer>()))
         {
-            TakeDamage(bullet.damage);
+            TakeDamage(damageDealer.damage);
         }
     }
 
