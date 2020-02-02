@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c71cb28424e8b2c48bd5a48186ef5f7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemControl: 0
   acceleration: 1
   maxSpeed: 5
   frictionConstant: 0
@@ -189,7 +190,95 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 26cbf7cf-19bb-41a3-99cd-18b1e5b4985c
+    m_ActionName: PlayerControl/Move[/XInputControllerWindows/leftStick,/XInputControllerWindows/leftStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8a742e8f-9e24-4ec4-a6d3-5c9df53c9946
+    m_ActionName: PlayerControl/MoveLeft[/XInputControllerWindows/dpad/left,/XInputControllerWindows/dpad/left]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4e754fa4-d4d8-4588-b83b-af156ddedbff
+    m_ActionName: PlayerControl/MoveRight[/XInputControllerWindows/dpad/right,/XInputControllerWindows/dpad/right]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0182db92-6f37-4cd8-be8e-71d99e42fb0a
+    m_ActionName: PlayerControl/UseController[/XInputControllerWindows/buttonSouth,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a7c13c90-c757-4cd9-9358-c8f833c79ab1
+    m_ActionName: PlayerControl/PickUpMaterial[/XInputControllerWindows/leftTrigger,/XInputControllerWindows/leftTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 660ac0f1-9570-4ac8-a436-7fbc5e8b2e34
+    m_ActionName: PlayerControl/RepairFuel[/XInputControllerWindows/leftShoulder,/XInputControllerWindows/leftShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f340a7a3-dadb-4db0-9e4b-6f1703de4cb9
+    m_ActionName: PlayerControl/Pause[/XInputControllerWindows/start,/XInputControllerWindows/start]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d756acee-d23a-4969-87fc-548df50be7ff
+    m_ActionName: PlayerControl/DropMaterial[/XInputControllerWindows/leftTrigger,/XInputControllerWindows/leftTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 44eeff35-f011-491d-be83-4a3c8cdc2fc1
+    m_ActionName: PlayerControl/StopMoveLeft[/XInputControllerWindows/dpad/left,/XInputControllerWindows/dpad/left]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 52abc7a6-dd6c-4ac0-b571-98b5d93ac120
+    m_ActionName: PlayerControl/StopMoveRight[/XInputControllerWindows/dpad/right,/XInputControllerWindows/dpad/right]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5099c1e2-4280-448e-8024-9b3c5cb1cbad
+    m_ActionName: WeaponControl/Rotation[/XInputControllerWindows/leftStick,/XInputControllerWindows/leftStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3b566119-be11-4633-b978-d89316509105
+    m_ActionName: WeaponControl/Fire[/XInputControllerWindows/rightTrigger,/XInputControllerWindows/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 94356184-5937-49af-888e-25e4345e8417
+    m_ActionName: WeaponControl/GetOut[/XInputControllerWindows/buttonEast,/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3e7d596b-3363-41a6-ad95-1eeffc1a3e0f
+    m_ActionName: WeaponControl/Pressurize[/XInputControllerWindows/rightShoulder,/XInputControllerWindows/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1b17aadb-6745-40ad-acb4-a867dbdfad06
+    m_ActionName: WeaponControl/Depressurize[/XInputControllerWindows/leftShoulder,/XInputControllerWindows/leftShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 66cbcd2b-3d64-45e0-a2ce-72cdec59227f
+    m_ActionName: WeaponControl/Pause[/XInputControllerWindows/start,/XInputControllerWindows/start]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 48ba52aa-a57e-4484-b3c1-d7208ca17b87
+    m_ActionName: TankMovementControl/Movement[/XInputControllerWindows/leftStick,/XInputControllerWindows/leftStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 805752be-8b97-44ee-afed-0188c0c49902
+    m_ActionName: TankMovementControl/Jump[/XInputControllerWindows/rightTrigger,/XInputControllerWindows/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2236e283-5016-4882-9c9c-1cbb115a8926
+    m_ActionName: TankMovementControl/GetOut[/XInputControllerWindows/buttonEast,/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 90eabdf0-0d18-415d-9847-36ed5fd9d477
+    m_ActionName: TankMovementControl/Pressurize[/XInputControllerWindows/rightShoulder,/XInputControllerWindows/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6804381e-8bda-4df1-9924-c7f2db940f42
+    m_ActionName: TankMovementControl/Depressurize[/XInputControllerWindows/leftShoulder,/XInputControllerWindows/leftShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d0cdb7eb-863b-49cc-af6e-3b24252c961f
+    m_ActionName: TankMovementControl/Pause[/XInputControllerWindows/start,/XInputControllerWindows/start]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerControl
