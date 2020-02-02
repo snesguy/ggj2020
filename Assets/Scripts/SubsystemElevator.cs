@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SubsystemElevator : MonoBehaviour
 {
+    float yStart;
     public float framerate = 60.0f;
     public float timeToStopInSeconds = 1.0f;
     public float pauseBeforeMovingInSeconds = 1.0f;
@@ -11,14 +12,17 @@ public class SubsystemElevator : MonoBehaviour
     public bool waitingToMove = true;
     public float timeTilMove = 0.0f;
     public float direction = 1.0f;
-    public float bottomLocation = -4.75f;
-    public float topLocation = 1.58333333333f;
+    private float bottomLocation = 0.0f;//-4.75f;
+    private float topLocation = 4.75f + 1.58333333333f;
 
     private float distanceToMove = 3.17f;
 
     // Start is called before the first frame update
     void Start()
     {
+        yStart = transform.position.y;
+        topLocation = yStart + topLocation;
+        bottomLocation = yStart;
         timeTilMove = timeToStopInSeconds;
     }
 
