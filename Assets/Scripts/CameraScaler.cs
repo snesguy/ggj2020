@@ -41,13 +41,11 @@ public class CameraScaler : MonoBehaviour
         float width = Mathf.Abs(maxx - minx);
 
         float minyOrtho = height;
-        float minxOrtho = width * 0.7f / camera.aspect;
+        float minxOrtho = width * camera.rect.height / camera.aspect;
 
         float ortho = Mathf.Max(minxOrtho, minyOrtho);
         ortho = Mathf.Min(ortho, maxOrtho);
         ortho = Mathf.Max(ortho, minOrtho);
-        //height = Mathf.Max(height, minView);
-        //height /= 2.0f;
         camera.orthographicSize = ortho;
         if (ortho == maxOrtho)
         {
