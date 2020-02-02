@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6539931244036673220}
   - component: {fileID: 8519955660646649684}
   - component: {fileID: -4110298885748545338}
+  - component: {fileID: 2360452500929965228}
   m_Layer: 0
   m_Name: PlayerTest
   m_TagString: Untagged
@@ -123,6 +124,15 @@ MonoBehaviour:
   moveSpeed: 10
   playerNumber: 0
   playerTeam: 0
+  tankMovementControl: 0
+  resourceMovementControl: 0
+  resourceGetControl: 0
+  uraniumMovementControl: 0
+  uraniumGetControl: 0
+  handsFull: 0
+  uranium: 0
+  gear: 0
+  inventoryLimit: 10
 --- !u!50 &6539931244036673223
 Rigidbody2D:
   serializedVersion: 4
@@ -307,3 +317,22 @@ MonoBehaviour:
   S4: {fileID: -1728303772205049187, guid: 0de316c6d80cb424ab61b453d2b11f8e, type: 3}
   S5: {fileID: -8672369927742047933, guid: 6da31f07c6994fe45a44bb2b5b3975d1, type: 3}
   S6: {fileID: -7717242711038747651, guid: b95d348c974f4cb439f6efe62388984f, type: 3}
+--- !u!95 &2360452500929965228
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6539931244036673229}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b5611cb662e6b1343a0f3f566ef43aa5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
