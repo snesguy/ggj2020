@@ -4,6 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Square
   - Subsystem_Wall
   layers:
   - Default
