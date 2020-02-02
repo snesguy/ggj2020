@@ -49,13 +49,21 @@ public class WeaponControls : ItemControl
             fire = false;
             Fire(devPresureAmount);
         }
+
+        ControlPart();
     }
 
     public override void ControlPart()
     {
-        rotationVector = Input.GetAxisRaw("Horizontal") * rotateSpeed;
-        body.transform.Rotate(0,0,rotationVector);
+        rotationVector = Input.GetAxisRaw("Horizontal") * -rotateSpeed;
+        transform.Rotate(0,0,rotationVector);
 
+        if (transform.eulerAngles.z < 270 && transform.eulerAngles.z > 240)
+            transform.eulerAngles = new Vector3(transform.rotation.x, transform.rotation.y, 270);
+        else if (transform.eulerAngles.z > 90 && transform.eulerAngles.z < 120)
+            transform.eulerAngles = new Vector3(transform.rotation.x, transform.rotation.y, 90);
+
+        //Debug.Log(transform.eulerAngles.z);
     }
 
     public void Fire(float pressure)
@@ -63,15 +71,6 @@ public class WeaponControls : ItemControl
         GameObject bullet = Instantiate(bulletPrefab, spawnPoint.position, transform.rotation);
         Rigidbody2D bulletBody = bullet.GetComponent<Rigidbody2D>();
         bulletBody.velocity = transform.up * (baseSpeed + (pressure * steamSpeedMultiplier));
-        Debug.Log(bulletBody.velocity);
-        Debug.Log(baseSpeed);
-
-        Debug.Log(pressure);
-        Debug.Log(steamSpeedMultiplier);
-        Debug.Log(transform.up);
-
-
-
 
         ProjectileScript script = bullet.GetComponent<ProjectileScript>();
         script.power = baseDamage + (pressure * steamDamageMultiplier);
