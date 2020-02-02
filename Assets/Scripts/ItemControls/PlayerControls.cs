@@ -59,13 +59,13 @@ public class PlayerControls : ItemControl
 
         if (playerNumber % 2 == 0) {
             parentObject = GameObject.Find ("Subsystem_Prefab_Left");
-            transform.position = new Vector3 (-6.844599f, 95.89f, 0);
+            transform.position = new Vector3 (-6.844599f, 92.99413f, 0);
             transform.parent = parentObject.transform;
             teamTank = GameObject.Find ("ProtoTank");
             playerTeam = 0;
         } else {
             parentObject = GameObject.Find ("Subsystem_Prefab_Right");
-            transform.position = new Vector3 (-6.844599f, -95.89f, 0);
+            transform.position = new Vector3 (-6.844599f, -105.89f, 0);
             teamTank = GameObject.Find("ProtoTank2");
             playerTeam = 1;
         }
