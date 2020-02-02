@@ -523,7 +523,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1536525811}
   - component: {fileID: 1536525810}
-  - component: {fileID: 1536525809}
   m_Layer: 0
   m_Name: Bot RIght Camera
   m_TagString: MainCamera
@@ -531,14 +530,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1536525809
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1536525808}
-  m_Enabled: 1
 --- !u!20 &1536525810
 Camera:
   m_ObjectHideFlags: 0
@@ -606,7 +597,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1762853201}
   - component: {fileID: 1762853200}
-  - component: {fileID: 1762853199}
   m_Layer: 0
   m_Name: Bot Left Camera
   m_TagString: MainCamera
@@ -614,14 +604,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1762853199
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1762853198}
-  m_Enabled: 1
 --- !u!20 &1762853200
 Camera:
   m_ObjectHideFlags: 0
