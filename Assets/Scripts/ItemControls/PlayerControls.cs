@@ -21,6 +21,7 @@ public class PlayerControls : ItemControl
 
     private GameObject playerCount;
     private GameObject parentObject;
+    private GameObject boilerRoom;
 
     GameObject teamTank;
     Vector2 objectMovement;
@@ -44,6 +45,7 @@ public class PlayerControls : ItemControl
     public bool handsFull = false;
     public int uranium = 0;
     public int gear = 0;
+    public int inventoryLimit = 10;
 
     void Start () {
         body = gameObject.GetComponent<Rigidbody2D> ();
@@ -66,6 +68,7 @@ public class PlayerControls : ItemControl
         }
 
         tankInventory = teamTank.GetComponent<TankInventory>();
+        boilerRoom = GameObject.Find("BoilerRoomPressureGauge");
     }
 
     void Update () {
@@ -84,27 +87,7 @@ public class PlayerControls : ItemControl
 
             teamTank.transform.Translate (movement);
         }
-        else if(resourceGetControl && uranium == 0)
-        {
-            if(tankInventory.gearCount > 0 && Random.Range(0, 100) == 50)
-            {
-                tankInventory.gearCount--;
-                gear++;
-                handsFull = true;
-            }
-        }
-        else if(resourceMovementControl)
-        {
-            if (gear > 0 && Random.Range(0, 100) == 50)
-            {
-                gear--;
-                // Repair
-                if(gear == 0)
-                {
-                    handsFull = false;
-                }
-            }
-        }
+
     }
 
     private void OnMove (InputValue value) {
@@ -128,8 +111,46 @@ public class PlayerControls : ItemControl
     }
 
     private void OnUseControl () {
-        if (tankMovementControl) {
+        if (!handsFull && tankMovementControl) {
             playerInput.SwitchCurrentActionMap ("TankMovementControl");
+        }
+
+        else if (resourceGetControl && uranium == 0)
+        {
+            if (gear < inventoryLimit && tankInventory.gearCount > 0)
+            {
+                tankInventory.gearCount--;
+                gear++;
+                handsFull = true;
+            }
+        }
+        else if (uraniumGetControl && gear == 0)
+        {
+            if (uranium < inventoryLimit)
+            {
+                uranium++;
+                handsFull = true;
+            }
+        }
+        else if(uraniumMovementControl && gear == 0)
+        {
+            if(uranium > 0)
+            {
+                boilerRoom.GetComponent<BoilerRoom>().addPressure(uranium * 25.0f);
+                uranium = 0;
+                handsFull = false;
+            }
+        }
+        else if(handsFull)
+        {
+            uranium = 0;
+            if(gear > 0)
+            {
+                tankInventory.gearCount += gear;
+                gear = 0;
+            }
+            handsFull = false;
+
         }
         // Other movement control
     }
