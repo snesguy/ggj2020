@@ -14,10 +14,9 @@ GameObject:
   - component: {fileID: 4503379602169200690}
   - component: {fileID: 4503379602169200693}
   - component: {fileID: 4503379602169200692}
-  - component: {fileID: 408266707}
   m_Layer: 9
   m_Name: ProtoTank
-  m_TagString: Untagged
+  m_TagString: Tank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,10 +32,10 @@ Transform:
   m_LocalPosition: {x: 19.51, y: 10.18, z: 0}
   m_LocalScale: {x: 0.4720394, y: 0.4720394, z: 0.4720394}
   m_Children:
+  - {fileID: 2570711208782436365}
   - {fileID: 2570711208557537848}
   - {fileID: 8556392325246865280}
   - {fileID: 8110976451072038589}
-  - {fileID: 2570711208782436365}
   - {fileID: 1097118468243157885}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -170,19 +169,6 @@ MonoBehaviour:
   acceleration: 5.91
   maxSpeed: 4.61
   frictionConstant: 0
---- !u!114 &408266707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4503379602169200687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00b92c990c90bcb4c99562f49f1c54ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 10
 --- !u!1 &4740792363047321618
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,7 +198,7 @@ Transform:
   m_Children:
   - {fileID: 2570711208419283983}
   m_Father: {fileID: 4503379602169200689}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5908141728371212356
 GameObject:
@@ -274,7 +260,7 @@ Transform:
   m_Children:
   - {fileID: 2570711209174301302}
   m_Father: {fileID: 4503379602169200689}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4503379601002640736
 PrefabInstance:
@@ -664,7 +650,7 @@ PrefabInstance:
     - target: {fileID: 2148841381681428553, guid: 6f73b7e9d026ca5438d482699d1b4fd5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2148841381681428553, guid: 6f73b7e9d026ca5438d482699d1b4fd5,
         type: 3}
@@ -798,7 +784,7 @@ PrefabInstance:
     - target: {fileID: 2148841381681428553, guid: 6f73b7e9d026ca5438d482699d1b4fd5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2148841381681428553, guid: 6f73b7e9d026ca5438d482699d1b4fd5,
         type: 3}
@@ -836,6 +822,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: d7044b83cfdb1b743b0d034a86fa59ef,
         type: 3}
+    - target: {fileID: 2148841381681428554, guid: 6f73b7e9d026ca5438d482699d1b4fd5,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1975639677
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148841381681428554, guid: 6f73b7e9d026ca5438d482699d1b4fd5,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2148841381681428556, guid: 6f73b7e9d026ca5438d482699d1b4fd5,
         type: 3}
       propertyPath: m_Name

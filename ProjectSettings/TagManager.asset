@@ -7,6 +7,8 @@ TagManager:
   - Square
   - Subsystem_Wall
   - Button
+  - Tank
+  - Resorse
   layers:
   - Default
   - TransparentFX
@@ -21,9 +23,7 @@ TagManager:
   - Tank2
   - Tank
   - Square
-  - 
-  - 
-  - 
+  - Supply
   - 
   - 
   - 
