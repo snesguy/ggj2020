@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 4503379602169200688}
   - component: {fileID: 4503379602169200691}
   - component: {fileID: 4503379602169200690}
-  - component: {fileID: 4503379602169200693}
-  - component: {fileID: 4503379602169200692}
   - component: {fileID: 697051131752636507}
   m_Layer: 9
   m_Name: ProtoTank
@@ -138,38 +136,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10.65, y: 7.01}
   m_EdgeRadius: 0
---- !u!114 &4503379602169200693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4503379602169200687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3092cbdcc615ad4c98072417a4a9e75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerControls: {fileID: 4503379602169200692}
-  player2Controls: {fileID: 0}
-  mainWeapon: {fileID: 0}
-  PlayerState: 0
---- !u!114 &4503379602169200692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4503379602169200687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c71cb28424e8b2c48bd5a48186ef5f7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemControl: 0
-  acceleration: 5.91
-  maxSpeed: 4.61
-  frictionConstant: 0
 --- !u!114 &697051131752636507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,6 +148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f253f77f265c1a14e805c86b8ad05fa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gearCount: 0
+  maxGear: 100
 --- !u!1 &4740792363047321618
 GameObject:
   m_ObjectHideFlags: 0
