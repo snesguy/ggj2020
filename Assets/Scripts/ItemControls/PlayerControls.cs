@@ -27,6 +27,7 @@ public class PlayerControls : ItemControl
     Vector2 objectMovement;
 
     Vector2 inputMovement;
+    Quaternion inputQuat;
     public float moveSpeed = 10f;
     public int playerNumber;
     public int playerTeam;
@@ -39,6 +40,7 @@ public class PlayerControls : ItemControl
     public bool resourceGetControl = false;
     public bool uraniumMovementControl = false;
     public bool uraniumGetControl = false;
+    public bool bigGunControl = false;
 
 
     /** Inventory **/
@@ -75,6 +77,11 @@ public class PlayerControls : ItemControl
     void Update () {
         Move ();
         MoveControlledObject ();
+
+        if(bigGunControl)
+        {
+            tankInventory.bigGun.ControlPart2(inputMovement.x);
+        }
     }
 
     private void Move () {
@@ -91,8 +98,15 @@ public class PlayerControls : ItemControl
 
     }
 
-    private void OnMove (InputValue value) {
-        inputMovement = value.Get<Vector2> ();
+    private void OnMove(InputValue value)
+    {
+        inputMovement = value.Get<Vector2>();
+    }
+
+    private void OnRotation(InputValue value)
+    {
+        inputQuat = value.Get<Quaternion>();
+
     }
 
     private void OnMoveLeft () {
@@ -219,6 +233,10 @@ public class PlayerControls : ItemControl
         {
             uraniumGetControl = true;
         }
+        else if (col.gameObject.name == "Button_LT")
+        {
+            bigGunControl = true;
+        }
     }
 
     void OnTriggerExit2D (Collider2D col) {
@@ -240,6 +258,10 @@ public class PlayerControls : ItemControl
         else if (col.gameObject.name == "Button_Uranium_Get")
         {
             uraniumGetControl = false;
+        }
+        else if (col.gameObject.name == "Button_LT")
+        {
+            bigGunControl = false;
         }
     }
 
