@@ -62,16 +62,17 @@ public class PlayerControls : ItemControl
             transform.position = new Vector3 (-6.844599f, 92.99413f, 0);
             transform.parent = parentObject.transform;
             teamTank = GameObject.Find ("ProtoTank");
+            boilerRoom = GameObject.Find("BoilerRoomPressureGauge");
             playerTeam = 0;
         } else {
             parentObject = GameObject.Find ("Subsystem_Prefab_Right");
             transform.position = new Vector3 (-6.844599f, -105.89f, 0);
             teamTank = GameObject.Find("ProtoTank2");
+            boilerRoom = GameObject.Find("BoilerRoomPressureGauge2");
             playerTeam = 1;
         }
 
         tankInventory = teamTank.GetComponent<TankInventory>();
-        boilerRoom = GameObject.Find("BoilerRoomPressureGauge");
     }
 
     void Update () {
