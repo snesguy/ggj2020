@@ -18,15 +18,6 @@ public class BoilerRoom : RoomController
     // Update is called once per frame
     void Update()
     {
-        if(uranium > 0)
-        {
-            uranium -= uranusDepletionPerSecond * Time.deltaTime;
-            addPressure(gasGenerationPerSecond * Time.deltaTime);
-        }
-        else if(uranium < 0)
-        {
-            uranium = 0;
-        }
     }
 
     public void addUranium(int amount)
