@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
+    public bool onResourcePile = false;
+    public bool onUraniumPile = false;
+
     public bool handsFull;
     public int uranium;
     public int gear;
+
+    public bool tryPickup = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,15 +24,27 @@ public class PlayerInventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(tryPickup)
+        {
+            if(onResourcePile)
+            {
+                
+            }
+            else if(onUraniumPile)
+            {
 
-        if(uranium > 0 || gear > 0)
-        {
-            handsFull = true;
+            }
+
+            if (uranium > 0 || gear > 0)
+            {
+                handsFull = true;
+            }
+            else
+            {
+                handsFull = false;
+            }
         }
-        else
-        {
-            handsFull = false;
-        }
+
     }
     public int getGear()
     {
@@ -56,5 +73,29 @@ public class PlayerInventory : MonoBehaviour
     {
 
         uranium += uraniumUsed;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.CompareTag("ResourcePile"))
+        {
+            onResourcePile = true;
+        }
+        else if (other.gameObject.CompareTag("UraniumPile"))
+        {
+            onUraniumPile = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("ResourcePile"))
+        {
+            onResourcePile = false;
+        }
+        else if (other.gameObject.CompareTag("UraniumPile"))
+        {
+            onUraniumPile = false;
+        }
     }
 }

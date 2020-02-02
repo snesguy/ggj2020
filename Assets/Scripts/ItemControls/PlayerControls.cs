@@ -31,8 +31,19 @@ public class PlayerControls : ItemControl
     public int playerTeam;
 
     PlayerInput playerInput;
+    private TankInventory tankInventory;
 
-    bool tankMovementControl = false;
+    public bool tankMovementControl = false;
+    public bool resourceMovementControl = false;
+    public bool resourceGetControl = false;
+    public bool uraniumMovementControl = false;
+    public bool uraniumGetControl = false;
+
+
+    /** Inventory **/
+    public bool handsFull = false;
+    public int uranium = 0;
+    public int gear = 0;
 
     void Start () {
         body = gameObject.GetComponent<Rigidbody2D> ();
@@ -50,8 +61,11 @@ public class PlayerControls : ItemControl
             playerTeam = 0;
         } else {
             transform.position = new Vector3 (5, -4, 0);
+            teamTank = GameObject.Find("ProtoTank2");
             playerTeam = 1;
         }
+
+        tankInventory = teamTank.GetComponent<TankInventory>();
     }
 
     void Update () {
@@ -69,6 +83,27 @@ public class PlayerControls : ItemControl
             Vector3 movement = new Vector3 (objectMovement.x, 0, 0) * moveSpeed * Time.deltaTime;
 
             teamTank.transform.Translate (movement);
+        }
+        else if(resourceGetControl && uranium == 0)
+        {
+            if(tankInventory.gearCount > 0 && Random.Range(0, 100) == 50)
+            {
+                tankInventory.gearCount--;
+                gear++;
+                handsFull = true;
+            }
+        }
+        else if(resourceMovementControl)
+        {
+            if (gear > 0 && Random.Range(0, 100) == 50)
+            {
+                gear--;
+                // Repair
+                if(gear == 0)
+                {
+                    handsFull = false;
+                }
+            }
         }
     }
 
@@ -96,6 +131,7 @@ public class PlayerControls : ItemControl
         if (tankMovementControl) {
             playerInput.SwitchCurrentActionMap ("TankMovementControl");
         }
+        // Other movement control
     }
 
     private void OnMovement (InputValue value) {
@@ -106,15 +142,76 @@ public class PlayerControls : ItemControl
         playerInput.SwitchCurrentActionMap ("PlayerControl");
     }
 
+    public int getGear()
+    {
+        return gear;
+    }
+    public void addGear(int newGear)
+    {
+
+        gear += newGear;
+    }
+    public void useGear(int gearUsed)
+    {
+
+        gear -= gearUsed;
+    }
+    public int getUranium()
+    {
+        return uranium;
+    }
+    public void addUranium(int newUranium)
+    {
+
+        uranium += newUranium;
+    }
+    public void useUranium(int uraniumUsed)
+    {
+
+        uranium += uraniumUsed;
+    }
+
     void OnTriggerEnter2D (Collider2D col) {
         if (col.gameObject.name == "Button_RM") {
             tankMovementControl = true;
+        }
+        else if(col.gameObject.name == "ButtonLB")
+        {
+            resourceMovementControl = true;
+        }
+        else if (col.gameObject.name == "Button_Resource_Get")
+        {
+            resourceGetControl = true;
+        }
+        else if (col.gameObject.name == "ButtonRB")
+        {
+            uraniumMovementControl = true;
+        }
+        else if (col.gameObject.name == "Button_Uranium_Get")
+        {
+            uraniumGetControl = true;
         }
     }
 
     void OnTriggerExit2D (Collider2D col) {
         if (col.gameObject.name == "Button_RM") {
             tankMovementControl = false;
+        }
+        else if (col.gameObject.name == "ButtonLB")
+        {
+            resourceMovementControl = false;
+        }
+        else if (col.gameObject.name == "Button_Resource_Get")
+        {
+            resourceGetControl = false;
+        }
+        else if (col.gameObject.name == "ButtonRB")
+        {
+            uraniumMovementControl = false;
+        }
+        else if (col.gameObject.name == "Button_Uranium_Get")
+        {
+            uraniumGetControl = false;
         }
     }
 
