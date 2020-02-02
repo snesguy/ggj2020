@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2920795936126715077}
   - component: {fileID: 2920795936126715076}
+  - component: {fileID: 4143254194009878278}
   m_Layer: 0
   m_Name: BoilerRoomPressureGauge
   m_TagString: Untagged
@@ -44,13 +45,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a44d8e41656c65f4d968c8e22fab5535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boilerRoom: {fileID: 0}
-  maxHealth: 1000
+  emitters: []
+  pressure: 0
   maxPressure: 1000
   pressureLeakRate: 0.1
   pressureLeakThreshold: 0.75
-  totalUranus: 0
-  pressurePerUranus: 20
+--- !u!114 &4143254194009878278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2920795936126715078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6956bca469ef044f8f58a5e9c9bebb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  current: 0
+  max: 10
 --- !u!1 &2920795936187870565
 GameObject:
   m_ObjectHideFlags: 0

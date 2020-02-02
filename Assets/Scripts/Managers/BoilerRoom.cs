@@ -2,48 +2,103 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoilerRoom : RoomController
+public class BoilerRoom : MonoBehaviour
 {
+    public GameObject[] emitters;
 
-    public float totalUranus = 0f;
-    public float pressurePerUranus = 20.0f;
+    Vector3 scaler;
 
+    private Health hp;
 
-    // Start is called before the first frame update
-    void Start()
+    public float pressure = 0f;
+
+    public float maxPressure = 100f;
+
+    public float pressureLeakRate = 0.1f;
+
+    public float pressureLeakThreshold = .75f;
+
+    private void Start()
     {
-        
+        hp = gameObject.GetComponent<Health>();
+        scaler = gameObject.transform.localScale;
+        UpdateSteamGaugeVisual();
     }
 
-    // Update is called once per frame
-    void Update()
+    void UpdateSteamGaugeVisual()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        Vector3 newLocalScale = gameObject.transform.localScale;
+        newLocalScale.Set(scaler.x, pressure / maxPressure, scaler.z);
+        gameObject.transform.localScale = newLocalScale;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.F))
         {
-            addUranium(10f);
+            addPressure(.1f);
+            foreach (GameObject emitter in emitters)
+            {
+                emitter.GetComponent<SteamEmitterScript>().setEmissions(1000f);
+            }
         }
     }
 
-    public override bool addPressure(float amt)
+    void FixedUpdate()
     {
-        pressure += amt;
-        if(pressure > maxPressure)
+
+        if (hp.current < (hp.max * pressureLeakThreshold))
         {
-            pressure = maxPressure;
+            foreach (GameObject emitter in emitters)
+            {
+                emitter.GetComponent<SteamEmitterScript>().setEmissions(1000f);
+            }
+            reducePressure(pressureLeakRate);
         }
+    }
+
+    public bool usePressure()
+    {
         return true;
     }
 
-    public void addUranium(float amount)
+    public bool reducePressure(float amt)
     {
-        addPressure(pressurePerUranus * amount);
-        totalUranus += amount;
+        pressure -= amt;
+        if (pressure < 0)
+        {
+            pressure = 0;
+        }
+        UpdateSteamGaugeVisual();
+        return true;
     }
 
-    public void addUranium()
+    public virtual bool addPressure(float amt)
     {
-        addPressure(pressurePerUranus);
-        totalUranus++;
+        pressure += amt;
+        if (pressure > maxPressure)
+        {
+            pressure = maxPressure;
+        }
+        UpdateSteamGaugeVisual();
+        return true;
     }
 
+    public void repair(int amt)
+    {
+        hp.current += amt;
+        if (hp.current >= hp.max)
+        {
+            hp.current = hp.max;
+        }
+    }
+
+    public void damage(int amt)
+    {
+        hp.current -= amt;
+        if (hp.current <= 0)
+        {
+            hp.current = 0;
+        }
+    }
 }

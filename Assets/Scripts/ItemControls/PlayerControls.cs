@@ -21,6 +21,7 @@ public class PlayerControls : ItemControl
 
     private GameObject playerCount;
     private GameObject parentObject;
+    private GameObject boilerRoom;
 
     GameObject teamTank;
     Vector2 objectMovement;
@@ -31,8 +32,20 @@ public class PlayerControls : ItemControl
     public int playerTeam;
 
     PlayerInput playerInput;
+    private TankInventory tankInventory;
 
-    bool tankMovementControl = false;
+    public bool tankMovementControl = false;
+    public bool resourceMovementControl = false;
+    public bool resourceGetControl = false;
+    public bool uraniumMovementControl = false;
+    public bool uraniumGetControl = false;
+
+
+    /** Inventory **/
+    public bool handsFull = false;
+    public int uranium = 0;
+    public int gear = 0;
+    public int inventoryLimit = 10;
 
     void Start () {
         body = gameObject.GetComponent<Rigidbody2D> ();
@@ -50,8 +63,12 @@ public class PlayerControls : ItemControl
             playerTeam = 0;
         } else {
             transform.position = new Vector3 (5, -4, 0);
+            teamTank = GameObject.Find("ProtoTank2");
             playerTeam = 1;
         }
+
+        tankInventory = teamTank.GetComponent<TankInventory>();
+        boilerRoom = GameObject.Find("BoilerRoomPressureGauge");
     }
 
     void Update () {
@@ -70,6 +87,7 @@ public class PlayerControls : ItemControl
 
             teamTank.transform.Translate (movement);
         }
+
     }
 
     private void OnMove (InputValue value) {
@@ -93,9 +111,48 @@ public class PlayerControls : ItemControl
     }
 
     private void OnUseControl () {
-        if (tankMovementControl) {
+        if (!handsFull && tankMovementControl) {
             playerInput.SwitchCurrentActionMap ("TankMovementControl");
         }
+
+        else if (resourceGetControl && uranium == 0)
+        {
+            if (gear < inventoryLimit && tankInventory.gearCount > 0)
+            {
+                tankInventory.gearCount--;
+                gear++;
+                handsFull = true;
+            }
+        }
+        else if (uraniumGetControl && gear == 0)
+        {
+            if (uranium < inventoryLimit)
+            {
+                uranium++;
+                handsFull = true;
+            }
+        }
+        else if(uraniumMovementControl && gear == 0)
+        {
+            if(uranium > 0)
+            {
+                boilerRoom.GetComponent<BoilerRoom>().addPressure(uranium * 25.0f);
+                uranium = 0;
+                handsFull = false;
+            }
+        }
+        else if(handsFull)
+        {
+            uranium = 0;
+            if(gear > 0)
+            {
+                tankInventory.gearCount += gear;
+                gear = 0;
+            }
+            handsFull = false;
+
+        }
+        // Other movement control
     }
 
     private void OnMovement (InputValue value) {
@@ -112,15 +169,76 @@ public class PlayerControls : ItemControl
         }
     }
 
+    public int getGear()
+    {
+        return gear;
+    }
+    public void addGear(int newGear)
+    {
+
+        gear += newGear;
+    }
+    public void useGear(int gearUsed)
+    {
+
+        gear -= gearUsed;
+    }
+    public int getUranium()
+    {
+        return uranium;
+    }
+    public void addUranium(int newUranium)
+    {
+
+        uranium += newUranium;
+    }
+    public void useUranium(int uraniumUsed)
+    {
+
+        uranium += uraniumUsed;
+    }
+
     void OnTriggerEnter2D (Collider2D col) {
         if (col.gameObject.name == "Button_RM") {
             tankMovementControl = true;
+        }
+        else if(col.gameObject.name == "ButtonLB")
+        {
+            resourceMovementControl = true;
+        }
+        else if (col.gameObject.name == "Button_Resource_Get")
+        {
+            resourceGetControl = true;
+        }
+        else if (col.gameObject.name == "ButtonRB")
+        {
+            uraniumMovementControl = true;
+        }
+        else if (col.gameObject.name == "Button_Uranium_Get")
+        {
+            uraniumGetControl = true;
         }
     }
 
     void OnTriggerExit2D (Collider2D col) {
         if (col.gameObject.name == "Button_RM") {
             tankMovementControl = false;
+        }
+        else if (col.gameObject.name == "ButtonLB")
+        {
+            resourceMovementControl = false;
+        }
+        else if (col.gameObject.name == "Button_Resource_Get")
+        {
+            resourceGetControl = false;
+        }
+        else if (col.gameObject.name == "ButtonRB")
+        {
+            uraniumMovementControl = false;
+        }
+        else if (col.gameObject.name == "Button_Uranium_Get")
+        {
+            uraniumGetControl = false;
         }
     }
 

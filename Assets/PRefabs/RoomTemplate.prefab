@@ -91,8 +91,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5444086309888708129}
   - component: {fileID: 969748319185284513}
+  - component: {fileID: 7491750348356495885}
   m_Layer: 0
-  m_Name: BoilerRoomPressureGauge
+  m_Name: RoomPressureGauge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,11 +126,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea2c863fe9f3421469e0f351aba6aaa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  emitters: []
   boilerRoom: {fileID: 0}
-  maxHealth: 100
   maxPressure: 100
   pressureLeakRate: 0.1
   pressureLeakThreshold: 0.75
+--- !u!114 &7491750348356495885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5444086309888708130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6956bca469ef044f8f58a5e9c9bebb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  current: 0
+  max: 0
 --- !u!1 &5444086309908309889
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,6 +154,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5444086309908309895}
+  - component: {fileID: 2199045158409268706}
   - component: {fileID: 5444086309908309888}
   m_Layer: 0
   m_Name: RoomTemplate
@@ -162,6 +178,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2199045158409268706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5444086309908309889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6956bca469ef044f8f58a5e9c9bebb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  current: 0
+  max: 10
 --- !u!212 &5444086309908309888
 SpriteRenderer:
   m_ObjectHideFlags: 0
