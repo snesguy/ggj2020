@@ -5,10 +5,6 @@ using UnityEngine;
 public class BoilerRoom : RoomController
 {
 
-    private float uranium;
-
-    private float maxUranium;
-
     // Start is called before the first frame update
     void Start()
     {

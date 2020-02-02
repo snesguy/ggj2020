@@ -15,9 +15,8 @@ public class PlayerControls : ItemControl
 
     private Vector2 movementVector = new Vector2(0, 0);
     private Rigidbody2D body;
-    private bool jumped;
-    private bool grounded = false;
-    private bool settle = false;
+    private bool onControls = false;
+    private PlayerController.PlayerStates itemState;
 
     void Start()
     {
@@ -29,19 +28,10 @@ public class PlayerControls : ItemControl
         movementVector.x = Input.GetAxisRaw("Horizontal") * acceleration;
         movementVector.x = Mathf.Clamp(movementVector.x, -maxSpeed, maxSpeed);
 
-        if (Input.GetKeyDown("space") && grounded)
+        if (Input.GetKeyDown("space") && onControls)
         {
-            //AudioManager.instance.PlaySound(SoundName.PlayerJump);
-            movementVector.y = 10;
-            jumped = true;
+            
         }
-        else movementVector.y = 0;
-
-        if (Input.GetKeyUp("space"))
-        {
-            jumped = false;
-        }
-
         if (body.velocity.x + movementVector.x < frictionConstant && body.velocity.x + movementVector.x > -frictionConstant)
         {
             body.velocity = new Vector2(0, body.velocity.y + movementVector.y);
@@ -52,5 +42,12 @@ public class PlayerControls : ItemControl
             body.velocity += movementVector;
         }
         body.velocity = new Vector2(Mathf.Clamp(body.velocity.x, -maxSpeed, maxSpeed), body.velocity.y);
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        itemState = collision.GetComponent<ItemControl>().itemControl;
+        onControls = true;
     }
 }
