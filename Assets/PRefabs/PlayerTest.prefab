@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6539931244036673223}
   - component: {fileID: 6539931244036673220}
   - component: {fileID: 8519955660646649684}
+  - component: {fileID: -4110298885748545338}
   m_Layer: 0
   m_Name: PlayerTest
   m_TagString: Untagged
@@ -75,7 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 1975639677
   m_SortingLayer: 2
   m_SortingOrder: 2
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 7523913496300974355, guid: df1681c753be12241b59181e48ffb6f0,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -157,9 +159,9 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 0.21, y: 0.31}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -287,3 +289,21 @@ MonoBehaviour:
   m_DefaultActionMap: PlayerControl
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &-4110298885748545338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6539931244036673229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1495134b1d6112149a8004052eb85053, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  S1: {fileID: 2417873329390274390, guid: 1c87cc3c1e591fb47bb9735d3508c976, type: 3}
+  S2: {fileID: 7523913496300974355, guid: df1681c753be12241b59181e48ffb6f0, type: 3}
+  S3: {fileID: 6347076704703061280, guid: 40dcd4f3c06f6b94a818f93507b67718, type: 3}
+  S4: {fileID: -1728303772205049187, guid: 0de316c6d80cb424ab61b453d2b11f8e, type: 3}
+  S5: {fileID: -8672369927742047933, guid: 6da31f07c6994fe45a44bb2b5b3975d1, type: 3}
+  S6: {fileID: -7717242711038747651, guid: b95d348c974f4cb439f6efe62388984f, type: 3}
