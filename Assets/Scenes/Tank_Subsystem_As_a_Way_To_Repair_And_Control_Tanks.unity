@@ -354,6 +354,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerInputManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4442250930732491175, guid: dc5ceb4a68123de4582e16ac190bea69,
+        type: 3}
+      propertyPath: m_MaxPlayerCount
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4442250930732491176, guid: dc5ceb4a68123de4582e16ac190bea69,
         type: 3}
       propertyPath: m_LocalPosition.x
