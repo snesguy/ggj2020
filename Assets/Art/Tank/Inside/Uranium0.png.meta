@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: e94c795b3b9775e45bdda55eb95e8a7e
+labels:
+- Prop
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -87,5 +89,5 @@ TextureImporter:
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
-  assetBundleName: 
+  assetBundleName: uranium
   assetBundleVariant: 
