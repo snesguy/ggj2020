@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-abstract public class RoomController
+public class RoomController
 {
-    [SerializeField]
-    private BoilerRoom boilerRoom;
+    
+    public BoilerRoom boilerRoom;
 
-    [SerializeField]
-    private float maxHealth;
+    public float maxHealth;
 
     private float health;
 
@@ -16,12 +15,24 @@ abstract public class RoomController
 
     private float maxPressure;
 
-    public virtual bool usePressure()
+    public float pressureLeakRate = 0.1f;
+
+    public float pressureLeakThreshold = .75f;
+
+    void FixedUpdate()
+    {
+        if(health < (maxHealth * pressureLeakThreshold))
+        {
+            reducePressure(pressureLeakRate);
+        }
+    }
+
+    public bool usePressure()
     {
         return true;
     }
 
-    public virtual bool reducePressure(float amt)
+    public bool reducePressure(float amt)
     {
         pressure -= amt;
         if(pressure < 0)
@@ -31,7 +42,7 @@ abstract public class RoomController
         return true;
     }
 
-    public virtual bool addPressure(float amt)
+    public bool addPressure(float amt)
     {
         if (amt >= boilerRoom.pressure)
         {
@@ -45,7 +56,7 @@ abstract public class RoomController
         }
     }
 
-    public virtual void repair(float amt)
+    public void repair(float amt)
     {
         health += amt;
         if(health >= maxHealth)
@@ -54,7 +65,7 @@ abstract public class RoomController
         }
     }
 
-    public virtual void damage(float amt)
+    public void damage(float amt)
     {
         health -= amt;
         if(health <= 0)

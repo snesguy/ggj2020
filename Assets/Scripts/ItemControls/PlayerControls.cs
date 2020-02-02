@@ -19,12 +19,24 @@ public class PlayerControls : ItemControl
     private bool onControls = false;
     private PlayerController.PlayerStates itemState;
 
-    Vector2 inputMovement;
-    float moveSpeed = 10f;
+    private GameObject playerCount;
 
-    void Start()
-    {
-        body = gameObject.GetComponent<Rigidbody2D>();
+    Vector2 inputMovement;
+    public float moveSpeed = 10f;
+    public int playerNumber;
+
+    void Start () {
+        body = gameObject.GetComponent<Rigidbody2D> ();
+        playerCount = GameObject.Find ("PlayerCount");
+
+        playerNumber = playerCount.GetComponent<playerCount> ().getCount ();
+        playerCount.GetComponent<playerCount> ().incrementCount ();
+
+        if (playerNumber % 2 == 0) {
+            transform.position = new Vector3 (-5, -4, 0);
+        } else {
+            transform.position = new Vector3 (5, -4, 0);
+        }
     }
 
     void Update () {
@@ -41,11 +53,11 @@ public class PlayerControls : ItemControl
     }
 
     private void OnMoveLeft () {
-        inputMovement = new Vector2 (-20, 0) * moveSpeed * Time.deltaTime;
+        inputMovement = new Vector2 (-23.5f, 0) * moveSpeed * Time.deltaTime;
     }
 
     private void OnMoveRight () {
-        inputMovement = new Vector2 (20, 0) * moveSpeed * Time.deltaTime;
+        inputMovement = new Vector2 (23.5f, 0) * moveSpeed * Time.deltaTime;
     }
 
     private void OnStopMoveLeft () {
