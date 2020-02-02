@@ -6,12 +6,12 @@ public class ProjectileScript : MonoBehaviour
 {
     private Rigidbody2D rb;
 
-    public Vector2 startVelocity;
+    public float power;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        rb.velocity = startVelocity;
     }
 
     // Update is called once per frame
