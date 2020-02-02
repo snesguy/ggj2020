@@ -25,7 +25,7 @@ public class DestructableBlock : MonoBehaviour
         //Output this data into the console
         OutputData();
 
-        DestroyAllSquares();
+        DestroyChildren();
         spacing = square.transform.localScale.x;
         Debug.Log("Square spacing: " + spacing);
         CreateGrid(m_Min.x, m_Max.x, m_Min.y, m_Max.y);
@@ -40,12 +40,12 @@ public class DestructableBlock : MonoBehaviour
         Debug.Log("Collider bound Maximum : " + m_Max);
     }
 
-    void DestroyAllSquares()
+    void DestroyChildren()
     {
-        GameObject[] squares = GameObject.FindGameObjectsWithTag("Square");
-        for (int i = 0; i < squares.Length; i++)
+        int childCount = gameObject.transform.childCount;
+        for (int i = 0; i < childCount; i++)
         {
-            GameObject.DestroyImmediate(squares[i]);
+            GameObject.DestroyImmediate(gameObject.transform.GetChild(0).gameObject);
         }
     }
 
