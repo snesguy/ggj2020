@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class Square : MonoBehaviour
 {
-    int health;
+    Health health;
+    DamageEffect damageEffect;
     // Start is called before the first frame update
     void Start()
     {
-        health = 10;
+        health = GetComponent<Health>();
+        damageEffect = GetComponent<DamageEffect>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+     
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -23,6 +25,7 @@ public class Square : MonoBehaviour
         if(null != (damageDealer = collision.gameObject.GetComponent<DamageDealer>()))
         {
             TakeDamage(damageDealer.damage);
+            damageEffect.UpdateDamageEffect();
         }
     }
 
@@ -37,8 +40,8 @@ public class Square : MonoBehaviour
 
     public void TakeDamage(int dmg)
     {
-        health -= dmg;
-        if(health == 0)
+        health.current -= dmg;
+        if(health.current == 0)
         {
             Destroy(gameObject);
         }
