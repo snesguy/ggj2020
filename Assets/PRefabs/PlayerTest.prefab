@@ -120,6 +120,7 @@ MonoBehaviour:
   frictionConstant: 0
   moveSpeed: 10
   playerNumber: 0
+  playerTeam: 0
 --- !u!50 &6539931244036673223
 Rigidbody2D:
   serializedVersion: 4
