@@ -52,9 +52,9 @@ public class DestructableBlock : MonoBehaviour
     void CreateGrid(float minX, float maxX, float minY, float maxY)
     {
         Vector3 location = new Vector3(0, 0, -1);
-        for (location.y = minY + spacing; location.y < maxY; location.y += spacing)
+        for (location.y = minY; location.y < maxY; location.y += spacing)
         {
-            for (location.x = minX + spacing; location.x < maxX; location.x += spacing)
+            for (location.x = minX; location.x < maxX; location.x += spacing)
             {
                 GameObject newObj = GameObject.Instantiate(square, location, Quaternion.identity);
                 newObj.transform.parent = this.transform;
