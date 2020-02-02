@@ -26,6 +26,15 @@ public class Square : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        Bullet bullet;
+        if (null != (bullet = collider.gameObject.GetComponent<Bullet>()))
+        {
+            TakeDamage(bullet.damage);
+        }
+    }
+
     public void TakeDamage(int dmg)
     {
         health -= dmg;
