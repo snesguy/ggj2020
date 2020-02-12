@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1098646866383109746
+--- !u!1 &6539931244036673229
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,26 +8,27 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1098646866383109751}
-  - component: {fileID: 1098646866383109748}
-  - component: {fileID: 1098646866383109749}
-  - component: {fileID: 1098646866383109753}
-  - component: {fileID: 1098646866383109752}
-  - component: {fileID: 1098646866383109755}
+  - component: {fileID: 6539931244036673224}
+  - component: {fileID: 6539931244036673227}
+  - component: {fileID: 6539931244036673223}
+  - component: {fileID: 6539931244036673220}
+  - component: {fileID: 8519955660646649684}
+  - component: {fileID: -4110298885748545338}
+  - component: {fileID: 2360452500929965228}
   m_Layer: 0
-  m_Name: Player
+  m_Name: PlayerTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1098646866383109751
+--- !u!4 &6539931244036673224
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1098646866383109746}
+  m_GameObject: {fileID: 6539931244036673229}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
@@ -35,13 +36,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1098646866383109748
+--- !u!212 &6539931244036673227
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1098646866383109746}
+  m_GameObject: {fileID: 6539931244036673229}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -71,10 +72,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_SortingLayerID: 1975639677
+  m_SortingLayer: 2
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 7523913496300974355, guid: df1681c753be12241b59181e48ffb6f0,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -85,44 +87,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1098646866383109749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1098646866383109746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3092cbdcc615ad4c98072417a4a9e75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerControls: {fileID: 1098646866383109753}
-  player2Controls: {fileID: 0}
-  PlayerState: 0
---- !u!114 &1098646866383109753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1098646866383109746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c71cb28424e8b2c48bd5a48186ef5f7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  acceleration: 1
-  maxSpeed: 5
-  frictionConstant: 0
---- !u!50 &1098646866383109752
+--- !u!50 &6539931244036673223
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1098646866383109746}
+  m_GameObject: {fileID: 6539931244036673229}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -130,19 +102,19 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0.2
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &1098646866383109755
+--- !u!61 &6539931244036673220
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1098646866383109746}
+  m_GameObject: {fileID: 6539931244036673229}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -151,9 +123,9 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 0.21, y: 0.31}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -162,3 +134,159 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
+--- !u!114 &8519955660646649684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6539931244036673229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 0ae3b3d61b1e49148829fab2661cc9ab,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 26cbf7cf-19bb-41a3-99cd-18b1e5b4985c
+    m_ActionName: PlayerControl/Move[/XInputControllerWindows/leftStick,/XInputControllerWindows/leftStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8a742e8f-9e24-4ec4-a6d3-5c9df53c9946
+    m_ActionName: PlayerControl/MoveLeft[/XInputControllerWindows/dpad/left,/XInputControllerWindows/dpad/left]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4e754fa4-d4d8-4588-b83b-af156ddedbff
+    m_ActionName: PlayerControl/MoveRight[/XInputControllerWindows/dpad/right,/XInputControllerWindows/dpad/right]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0182db92-6f37-4cd8-be8e-71d99e42fb0a
+    m_ActionName: PlayerControl/UseController[/XInputControllerWindows/buttonSouth,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a7c13c90-c757-4cd9-9358-c8f833c79ab1
+    m_ActionName: PlayerControl/PickUpMaterial[/XInputControllerWindows/leftTrigger,/XInputControllerWindows/leftTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 660ac0f1-9570-4ac8-a436-7fbc5e8b2e34
+    m_ActionName: PlayerControl/RepairFuel[/XInputControllerWindows/leftShoulder,/XInputControllerWindows/leftShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f340a7a3-dadb-4db0-9e4b-6f1703de4cb9
+    m_ActionName: PlayerControl/Pause[/XInputControllerWindows/start,/XInputControllerWindows/start]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d756acee-d23a-4969-87fc-548df50be7ff
+    m_ActionName: PlayerControl/DropMaterial[/XInputControllerWindows/leftTrigger,/XInputControllerWindows/leftTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 44eeff35-f011-491d-be83-4a3c8cdc2fc1
+    m_ActionName: PlayerControl/StopMoveLeft[/XInputControllerWindows/dpad/left,/XInputControllerWindows/dpad/left]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 52abc7a6-dd6c-4ac0-b571-98b5d93ac120
+    m_ActionName: PlayerControl/StopMoveRight[/XInputControllerWindows/dpad/right,/XInputControllerWindows/dpad/right]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5099c1e2-4280-448e-8024-9b3c5cb1cbad
+    m_ActionName: WeaponControl/Rotation[/XInputControllerWindows/leftStick,/XInputControllerWindows/leftStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3b566119-be11-4633-b978-d89316509105
+    m_ActionName: WeaponControl/Fire[/XInputControllerWindows/rightTrigger,/XInputControllerWindows/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 94356184-5937-49af-888e-25e4345e8417
+    m_ActionName: WeaponControl/GetOut[/XInputControllerWindows/buttonEast,/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3e7d596b-3363-41a6-ad95-1eeffc1a3e0f
+    m_ActionName: WeaponControl/Pressurize[/XInputControllerWindows/rightShoulder,/XInputControllerWindows/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1b17aadb-6745-40ad-acb4-a867dbdfad06
+    m_ActionName: WeaponControl/Depressurize[/XInputControllerWindows/leftShoulder,/XInputControllerWindows/leftShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 66cbcd2b-3d64-45e0-a2ce-72cdec59227f
+    m_ActionName: WeaponControl/Pause[/XInputControllerWindows/start,/XInputControllerWindows/start]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 48ba52aa-a57e-4484-b3c1-d7208ca17b87
+    m_ActionName: TankMovementControl/Movement[/XInputControllerWindows/leftStick,/XInputControllerWindows/leftStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 805752be-8b97-44ee-afed-0188c0c49902
+    m_ActionName: TankMovementControl/Jump[/XInputControllerWindows/rightTrigger,/XInputControllerWindows/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2236e283-5016-4882-9c9c-1cbb115a8926
+    m_ActionName: TankMovementControl/GetOut[/XInputControllerWindows/buttonEast,/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 90eabdf0-0d18-415d-9847-36ed5fd9d477
+    m_ActionName: TankMovementControl/Pressurize[/XInputControllerWindows/rightShoulder,/XInputControllerWindows/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6804381e-8bda-4df1-9924-c7f2db940f42
+    m_ActionName: TankMovementControl/Depressurize[/XInputControllerWindows/leftShoulder,/XInputControllerWindows/leftShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d0cdb7eb-863b-49cc-af6e-3b24252c961f
+    m_ActionName: TankMovementControl/Pause[/XInputControllerWindows/start,/XInputControllerWindows/start]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: PlayerControl
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &-4110298885748545338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6539931244036673229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1495134b1d6112149a8004052eb85053, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  S1: {fileID: 2417873329390274390, guid: 1c87cc3c1e591fb47bb9735d3508c976, type: 3}
+  S2: {fileID: 7523913496300974355, guid: df1681c753be12241b59181e48ffb6f0, type: 3}
+  S3: {fileID: 6347076704703061280, guid: 40dcd4f3c06f6b94a818f93507b67718, type: 3}
+  S4: {fileID: -1728303772205049187, guid: 0de316c6d80cb424ab61b453d2b11f8e, type: 3}
+  S5: {fileID: -8672369927742047933, guid: 6da31f07c6994fe45a44bb2b5b3975d1, type: 3}
+  S6: {fileID: -7717242711038747651, guid: b95d348c974f4cb439f6efe62388984f, type: 3}
+--- !u!95 &2360452500929965228
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6539931244036673229}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b5611cb662e6b1343a0f3f566ef43aa5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
